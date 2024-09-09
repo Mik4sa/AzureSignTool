@@ -177,9 +177,9 @@ namespace AzureSignTool
             {
                 return new ValidationResult("At least one file must be specified to sign.");
             }
-            if (AppendSignature && !OperatingSystem.IsWindowsVersionAtLeast(10, 0, 22000))
+            if (AppendSignature && !OperatingSystem.IsWindowsVersionAtLeast(10, 0, 20348))
             {
-                return new ValidationResult("'--append-signature' requires Windows 11 or later.", new[] { nameof(AppendSignature) });
+                return new ValidationResult("'--append-signature' requires Windows Server 2022, Windows 11 or later.", new[] { nameof(AppendSignature) });
             }
             if (AppendSignature && AuthenticodeTimestamp.Present)
             {
